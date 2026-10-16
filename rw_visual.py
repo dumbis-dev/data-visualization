@@ -1,23 +1,24 @@
+from matplotlib.cm import Blues
 import matplotlib.pyplot as plt
 from random_walk import RandomWalk
 
 # Kepp making new walks, as long as program is active
 while True:
     # Make a random walk
-    rw = RandomWalk(50_000)
+    rw = RandomWalk()
     rw.fill_walk()
 
     # Plot the points in the walk
     plt.style.use("ggplot")
     fig, ax = plt.subplots(figsize=(15, 9))
-    point_numbers = range(rw.num_points)
-    ax.scatter(
+    # point_numbers = range(rw.num_points)
+    ax.plot(
         rw.x_values,
         rw.y_values,
-        s=1,
-        c=point_numbers,
-        cmap=plt.cm.Blues,
-        edgecolors="none",
+        linewidth=1,
+        # c=point_numbers,
+        # cmap=plt.cm.Blues,
+        # edgecolors="none",
     )
     ax.set_aspect("equal")
 
